@@ -1,10 +1,6 @@
-console.log('helloasdasd world');
-
-
-
-/* 
-Prettier & eslint
-https://typescript-eslint.io/linting/typed-linting
-https://dev.to/viniciuskneves/prettier-eslint-and-typescript-491j
-https://khalilstemmler.com/blogs/tooling/prettier/
-*/
+import { User } from './User';
+import { Company } from './Company';
+import { CustomMap } from './Map';
+// const user = new User();
+// const company = new Company()
+new CustomMap('map');
