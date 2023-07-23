@@ -1,4 +1,11 @@
-import { map, latLng, tileLayer, MapOptions, Map } from "leaflet";
+import { map, latLng, tileLayer, MapOptions, Map, marker } from 'leaflet';
+
+interface Mappable {
+    location: {
+        lat: number;
+        lng: number;
+    };
+}
 
 export class CustomMap {
     private leafletMap: Map;
@@ -7,14 +14,15 @@ export class CustomMap {
         this.leafletMap = map(element, {
             center: [0, 0],
             zoom: 1
-        })
+        });
+    }
+
+    displayMapMarker(mappable: Mappable): void {
+        tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution:
+                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(this.leafletMap);
+
+        marker([mappable.location.lat, mappable.location.lng]).addTo(this.leafletMap);
     }
 }
-
-// tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-//     tileSize: 512,
-//     zoomOffset: -1,
-//     minZoom: 1,
-//     crossOrigin: true
-// }).addTo(myMap);
