@@ -1,4 +1,4 @@
-# Interfaces + Classes
+# TS: Interfaces + Classes
 
 
 ## Project setup
