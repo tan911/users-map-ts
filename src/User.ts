@@ -14,4 +14,11 @@ export class User {
             lng: faker.location.longitude()
         };
     }
+
+    details(): string {
+        return `
+        Name: ${this.name}. <br>
+        Location: [${this.location.lat}, ${this.location.lng}]       
+        `;
+    }
 }

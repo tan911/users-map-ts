@@ -16,4 +16,13 @@ export class Company {
             lng: faker.location.longitude()
         };
     }
+
+    details(): string {
+        return `
+        Name: ${this.name}. <br>
+        Phrase: ${this.catchPhrase}. <br>
+        Location: 
+        [${this.location.lat}, ${this.location.lng}]
+        `;
+    }
 }
